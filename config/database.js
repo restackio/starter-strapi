@@ -53,11 +53,11 @@ const mariadb = {
 const restack_postgres = {
   client: 'postgres',
   connection: {
-    database: env('DATABASE_NAME', 'strapi'),
-    user: env('DATABASE_USERNAME', 'strapi'),
-    password: env('DATABASE_PASSWORD', 'strapi'),
-    port: env.int('DATABASE_PORT', 5432),
-    host: env('DATABASE_HOST', 'localhost'),
+    database: process.env.DATABASE_NAME ? db[process.env.DATABASE_NAME] || 'strapi' : 'strapi',
+    user: process.env.DATABASE_USERNAME ? db[process.env.DATABASE_USERNAME] || 'strapi' : 'strapi',
+    password: process.env.DATABASE_PASSWORD ? db[process.env.DATABASE_PASSWORD] || 'strapi' : 'strapi',
+    port: process.env.DATABASE_PORT ? db[process.env.DATABASE_PORT] || 5432 : 5432,
+    host: process.env.DATABASE_HOST ? db[process.env.DATABASE_HOST] || '0.0.0.0' : '0.0.0.0',
   },
 };
 
