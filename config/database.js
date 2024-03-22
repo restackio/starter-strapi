@@ -50,27 +50,24 @@ const mariadb = {
   },
 };
 
-const restack_postgres = {
-  client: 'postgres',
-  connection: {
-    database: process.env.DATABASE_NAME ? db[process.env.DATABASE_NAME] || 'strapi' : 'strapi',
-    user: process.env.DATABASE_USERNAME ? db[process.env.DATABASE_USERNAME] || 'strapi' : 'strapi',
-    password: process.env.DATABASE_PASSWORD ? db[process.env.DATABASE_PASSWORD] || 'strapi' : 'strapi',
-    port: process.env.DATABASE_PORT ? db[process.env.DATABASE_PORT] || 5432 : 5432,
-    host: process.env.DATABASE_HOST ? db[process.env.DATABASE_HOST] || '0.0.0.0' : '0.0.0.0',
-  },
-};
-
 const db = {
   mysql,
   mysql2,
   sqlite,
   postgres,
   mariadb,
-  restack_postgres,
 };
 
 module.exports = {
   //connection: process.env.DB ? db[process.env.DB] || db.sqlite : db.sqlite,
-  connection: db.restack_postgres,
+  connection: {
+    client: 'postgres',
+    connection: {
+      database: process.env.DATABASE_NAME ? db[process.env.DATABASE_NAME] || 'strapi' : 'strapi',
+      user: process.env.DATABASE_USERNAME ? db[process.env.DATABASE_USERNAME] || 'strapi' : 'strapi',
+      password: process.env.DATABASE_PASSWORD ? db[process.env.DATABASE_PASSWORD] || 'strapi' : 'strapi',
+      port: process.env.DATABASE_PORT ? db[process.env.DATABASE_PORT] || 5432 : 5432,
+      host: process.env.DATABASE_HOST ? db[process.env.DATABASE_HOST] || '0.0.0.0' : '0.0.0.0',
+    },
+  }
 };
