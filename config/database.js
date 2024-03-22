@@ -50,14 +50,27 @@ const mariadb = {
   },
 };
 
+const restack_postgres = {
+  client: 'postgres',
+  connection: {
+    database: env('DATABASE_NAME', 'strapi'),
+    user: env('DATABASE_USERNAME', 'strapi'),
+    password: env('DATABASE_PASSWORD', 'strapi'),
+    port: env.int('DATABASE_PORT', 5432),
+    host: env('DATABASE_HOST', 'localhost'),
+  },
+};
+
 const db = {
   mysql,
   mysql2,
   sqlite,
   postgres,
   mariadb,
+  restack_postgres,
 };
 
 module.exports = {
-  connection: process.env.DB ? db[process.env.DB] || db.sqlite : db.sqlite,
+  //connection: process.env.DB ? db[process.env.DB] || db.sqlite : db.sqlite,
+  connection: db.restack_postgres,
 };
