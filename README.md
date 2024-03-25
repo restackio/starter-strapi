@@ -20,6 +20,14 @@ Open Strapi application page on Restack and set up `Build custom image with GitH
 
 ![Build custom image with GitHub screenshot](/docs/img/build-image-setup.png)
 
+After deployment you need to register admin account. Visit this url:
+
+```
+https://{{ restack_application_hostname:HOSTNAME }}/admin
+```
+
+where `{{ restack_application_hostname:HOSTNAME }}` is a host name assigned to Strapi application by Restack.
+
 ### Configuration
 
 Configuration files are located under directory `./config` in this repository.
