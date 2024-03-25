@@ -23,10 +23,10 @@ Open Strapi application page on Restack and set up `Build custom image with GitH
 After deployment you need to register admin account. Visit this url:
 
 ```
-https://{{ restack_application_hostname:HOSTNAME }}/admin
+https://{{ restack_application_hostname }}/admin
 ```
 
-where `{{ restack_application_hostname:HOSTNAME }}` is a host name assigned to Strapi application by Restack.
+where `{{ restack_application_hostname }}` is a host name assigned to Strapi application by Restack.
 
 ### Configuration
 
