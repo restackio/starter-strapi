@@ -1,6 +1,24 @@
 'use strict';
 
 module.exports = () => ({
+  email: {
+    config: {
+      provider: "nodemailer",
+      providerOptions: {
+        host: env("SMTP_HOST", "127.0.0.1"),
+        port: env("SMTP_PORT", 25),
+        auth: {
+          user: env("SMTP_USERNAME", ""),
+          pass: env("SMTP_PASSWORD", ""),
+        },
+        secure: false,
+      },
+      settings: {
+        defaultFrom: env("SMTP_FROM_EMAIL"),
+        defaultReplyTo: env("SMTP_FROM_EMAIL"),
+      },
+    },
+  },
   graphql: {
     enabled: true,
     config: {
