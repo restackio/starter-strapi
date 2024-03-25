@@ -5,7 +5,7 @@ const cronTasks = require('./src/cron-tasks');
 module.exports = ({ env }) => ({
   host: '0.0.0.0',
   port: 1337,
-  url: env('BASE_URL', 'http://localhost:1337'),
+  //url: env('BASE_URL', 'http://localhost:1337'),
   cron: {
     enabled: true,
     tasks: cronTasks,
@@ -19,8 +19,6 @@ module.exports = ({ env }) => ({
     // This only populates relations in all content-manager endpoints
     populateRelations: env.bool('WEBHOOKS_POPULATE_RELATIONS', true),
   },
-  // ℹ️ http_proxy is the env var used by system to set proxy globally
-  globalProxy: env('http_proxy'),
   http: {
     serverOptions: {
       requestTimeout: 1000 * 60 * 10, // set request timeout to 600000ms (10 minutes)
