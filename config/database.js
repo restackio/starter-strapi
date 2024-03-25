@@ -63,11 +63,11 @@ module.exports = {
   connection: {
     client: 'postgres',
     connection: {
-      database: process.env.DATABASE_NAME ? db[process.env.DATABASE_NAME] || 'strapi' : 'strapi',
-      user: process.env.DATABASE_USERNAME ? db[process.env.DATABASE_USERNAME] || 'strapi' : 'strapi',
-      password: process.env.DATABASE_PASSWORD ? db[process.env.DATABASE_PASSWORD] || 'strapi' : 'strapi',
-      port: process.env.DATABASE_PORT ? db[process.env.DATABASE_PORT] || 5432 : 5432,
-      host: process.env.DATABASE_HOST ? db[process.env.DATABASE_HOST] || '0.0.0.0' : '0.0.0.0',
+      database: process.env.DATABASE_NAME ? process.env.DATABASE_NAME : 'strapi',
+      user: process.env.DATABASE_USERNAME ? process.env.DATABASE_USERNAME : 'strapi',
+      password: process.env.DATABASE_PASSWORD ? process.env.DATABASE_PASSWORD : 'strapi',
+      port: process.env.DATABASE_PORT ? process.env.DATABASE_PORT : 5432,
+      host: process.env.DATABASE_HOST ? process.env.DATABASE_HOST : '127.0.0.1',
     },
   }
 };
